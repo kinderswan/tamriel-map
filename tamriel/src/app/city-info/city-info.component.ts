@@ -1,27 +1,35 @@
-import { Component, OnInit, Input, Injectable, ViewChild , ElementRef} from '@angular/core';
+import { Component, OnInit, Input, Injectable, ViewChild, ElementRef } from '@angular/core';
 import { City } from '../models/city';
+import { EventDispatcher, Events } from '../shared/eventDispatcher'
 
 @Component({
   selector: 'app-city-info',
   templateUrl: './city-info.component.html',
   styleUrls: ['./city-info.component.css'],
-  providers: []
+  providers: [EventDispatcher]
 })
 
 
 export class CityInfoComponent implements OnInit {
 
-  constructor() {
-    this.cityNameDisplayed.nativeElement.addEventListener("cityClicked", this.cityClicked.bind(this), false)
+  eventDispatcher: EventDispatcher;
+
+  cityNameDisplayed: string;
+
+  constructor(eventDispatcher: EventDispatcher) {
+    this.eventDispatcher = eventDispatcher;
   }
 
   ngOnInit() {
+    this.subscribeForEvents();
   }
 
-  @ViewChild('cityInfo') cityNameDisplayed: ElementRef;
+  private onCityClicked(event: any): void {
+    this.cityNameDisplayed = event.detail.Name;
+  }
 
-  private cityClicked(city: City): void {
-    alert(1);
+  private subscribeForEvents(): void {
+    this.eventDispatcher.subscribe(Events.Components.MapLayout.MapCitySelected, this.onCityClicked, this)
   }
 
 }

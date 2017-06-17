@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TimelineScrollComponent } from './timeline-scroll.component';
+import { TimelineScrollComponent } from '../timeline-scroll.component';
 
 describe('TimelineScrollComponent', () => {
   let component: TimelineScrollComponent;

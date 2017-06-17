@@ -1,22 +1,27 @@
 import { Component, OnInit, ElementRef, AfterViewInit, ViewChild, EventEmitter, Input, Output, Injectable } from '@angular/core';
 import { City } from '../models/city';
 import { TimePeriod } from '../models/timePeriod';
+import { EventDispatcher, Events } from '../shared/eventDispatcher'
 
 @Component({
   selector: 'app-map-layout',
   templateUrl: './map-layout.component.html',
   styleUrls: ['./map-layout.component.css'],
-  providers: []
+  providers: [EventDispatcher]
 })
 
 export class MapLayoutComponent implements OnInit {
-  constructor() {
+
+  eventDispatcher: EventDispatcher;
+  
+  constructor(eventDispatcher: EventDispatcher) {
+    this.eventDispatcher = eventDispatcher;
   }
 
   ngOnInit() { }
 
   ngAfterViewInit() {
-    this.addMapPoints();
+    this.subscribeForEvents();
   }
 
   /**
@@ -27,8 +32,8 @@ export class MapLayoutComponent implements OnInit {
 
   @Input() periodInfo: TimePeriod;
 
-  private addMapPoints(): void {
-    this.createMapPoint("test", 287, 209);
+  private addMapPoints(cities: Array<City>): void {
+    cities.forEach((x) => this.createMapPoint(x.Name, x.PositionX, x.PositionY));
   }
 
   private createMapPoint(className: string, x: number, y: number) {
@@ -46,16 +51,15 @@ export class MapLayoutComponent implements OnInit {
 
   private handleShapeClick(event): void {
     let clickedCityModel = new City(event.target.className.baseVal, 0, 0);
+    this.eventDispatcher.publish(Events.Components.MapLayout.MapCitySelected, clickedCityModel);
+  } 
+
+  private subscribeForEvents(): void {
+    this.eventDispatcher.subscribe(Events.Components.TimelineScroll.TimePeriodSelected, this.onTimePeriodClicked, this)
   }
 
-  private triggerEvent(data: City): void {
-    var event = new CustomEvent("cityClicked", { detail: data });
-    window.dispatchEvent(event);
+  private onTimePeriodClicked(event: any): void{
+    let cities: Array<City> = event.detail;
+    this.addMapPoints(cities);
   }
-
-  private alert() {
-    alert(1);
-  }
-
-
 }
