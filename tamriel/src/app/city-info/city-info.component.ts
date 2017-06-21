@@ -17,19 +17,19 @@ export class CityInfoComponent implements OnInit {
   cityNameDisplayed: string;
 
   constructor(eventDispatcher: EventDispatcher) {
-    this.eventDispatcher = eventDispatcher;
+	this.eventDispatcher = eventDispatcher;
   }
 
   ngOnInit() {
-    this.subscribeForEvents();
+	this.subscribeForEvents();
   }
 
-  private onCityClicked(event: any): void {
-    this.cityNameDisplayed = event.detail.Name;
+  private onCityClicked(event: CustomEvent): void {
+	this.cityNameDisplayed = event.detail.Name;
   }
 
   private subscribeForEvents(): void {
-    this.eventDispatcher.subscribe(Events.Components.MapLayout.MapCitySelected, this.onCityClicked, this)
+	this.eventDispatcher.subscribe(Events.Components.MapLayout.MapCitySelected, this.onCityClicked, this)
   }
 
 }

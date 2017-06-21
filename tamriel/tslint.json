@@ -87,6 +87,9 @@
       true,
       "allow-null-check"
     ],
+    "typedef": [
+      true
+    ],
     "typedef-whitespace": [
       true,
       {

@@ -7,19 +7,19 @@ describe('MapLayoutComponent', () => {
   let fixture: ComponentFixture<MapLayoutComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ MapLayoutComponent ]
-    })
-    .compileComponents();
+	TestBed.configureTestingModule({
+		declarations: [ MapLayoutComponent ]
+	})
+	.compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MapLayoutComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+	fixture = TestBed.createComponent(MapLayoutComponent);
+	component = fixture.componentInstance;
+	fixture.detectChanges();
   });
 
   it('should be created', () => {
-    expect(component).toBeTruthy();
+	expect(component).toBeTruthy();
   });
 });

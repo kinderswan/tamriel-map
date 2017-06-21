@@ -19,7 +19,7 @@ export class MapLayoutComponent implements OnInit {
   ngOnInit() { }
 
   ngAfterViewInit() {
-    this.subscribeForEvents();
+	this.subscribeForEvents();
   }
 
   /**
@@ -31,33 +31,33 @@ export class MapLayoutComponent implements OnInit {
   @Input() periodInfo: TimePeriod;
 
   private addMapPoints(cities: Array<CityMarker>): void {
-    cities.forEach((x) => this.createMapPoint(x.Name, x.PositionX, x.PositionY));
+	cities.forEach((x) => this.createMapPoint(x.Name, x.PositionX, x.PositionY));
   }
 
-  private createMapPoint(className: any, x: number, y: number) {
-    let svgDocument = this.mapLayoutImage.nativeElement;
-    let shape: SVGGraphicsElement = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    shape.setAttributeNS(null, "cx", x.toString());
-    shape.setAttributeNS(null, "cy", y.toString());
-    shape.setAttributeNS(null, "r", "5");
-    shape.setAttributeNS(null, "fill", "black");
-    shape.setAttributeNS(null, "class", className);
-    shape.addEventListener("click", this.handleShapeClick.bind(this), false);
-    svgDocument.appendChild(shape);
+  private createMapPoint(className: {}, x: number, y: number) {
+	const svgDocument = this.mapLayoutImage.nativeElement;
+	const shape: SVGGraphicsElement = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+	shape.setAttributeNS(null, 'cx', x.toString());
+	shape.setAttributeNS(null, 'cy', y.toString());
+	shape.setAttributeNS(null, 'r', '5');
+	shape.setAttributeNS(null, 'fill', 'black');
+	shape.setAttributeNS(null, 'class', className);
+	shape.addEventListener('click', this.handleShapeClick.bind(this), false);
+	svgDocument.appendChild(shape);
   }
 
 
   private handleShapeClick(event): void {
-    let clickedCityModel = new CityMarker(event.target.className.baseVal, 0, 0, "");
-    this.eventDispatcher.publish(Events.Components.MapLayout.MapCitySelected, clickedCityModel);
+	const clickedCityModel = new CityMarker(event.target.className.baseVal, 0, 0, '');
+	this.eventDispatcher.publish(Events.Components.MapLayout.MapCitySelected, clickedCityModel);
   }
 
   private subscribeForEvents(): void {
-    this.eventDispatcher.subscribe(Events.Components.TimelineScroll.TimePeriodSelected, this.onTimePeriodClicked, this)
+	this.eventDispatcher.subscribe(Events.Components.TimelineScroll.TimePeriodSelected, this.onTimePeriodClicked, this)
   }
 
-  private onTimePeriodClicked(event: any): void {
-    let timePeriodId: string = event.detail;
-    this.mapService.getCities().subscribe(markers => this.addMapPoints(markers), error => console.log(error));
+  private onTimePeriodClicked(event: {}): void {
+	const timePeriodId: string = event.detail;
+	this.mapService.getCities().subscribe(markers => this.addMapPoints(markers), error => console.log(error));
   }
 }

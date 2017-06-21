@@ -8,6 +8,7 @@ exports.getAll = function (req, res) {
 }
 
 exports.import = function (req, res) {
+	CityMarker.remove({});
 	CityMarker.create(
 		{ Name: "Gorod", PositionX: 127, PositionY: 345, TimePeriodId: "12345"},
 		function (err) {

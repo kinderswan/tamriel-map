@@ -10,15 +10,15 @@ import { TimelineScrollComponent } from '../timeline-scroll/timeline-scroll.comp
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MapLayoutComponent,
-    CityInfoComponent,
-    TimelineScrollComponent,   
+	AppComponent,
+	MapLayoutComponent,
+	CityInfoComponent,
+	TimelineScrollComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpModule
+	BrowserModule,
+	AppRoutingModule,
+	HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

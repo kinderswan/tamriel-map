@@ -1,24 +1,24 @@
 export class EventDispatcher {
 
-	public subscribe(eventName: string, callback: any, context: any): void {
+	public subscribe(eventName: string, callback: {}, context: {}): void {
 		window.addEventListener(eventName, callback.bind(context), false);
 	}
 
-	public publish(eventName: string, data: any): void {
-		let event: Event = new CustomEvent(eventName, { detail: data });
+	public publish(eventName: string, data: {}): void {
+		const event: Event = new CustomEvent(eventName, { detail: data });
 		window.dispatchEvent(event)
 
 	}
 }
 
-export const Events: { Components: { CityInfo: any, MapLayout: any, TimelineScroll: any } } = {
+export const Events: { Components: { CityInfo: {}, MapLayout: {}, TimelineScroll: {} } } = {
 	Components: {
 		CityInfo: {},
 		MapLayout: {
-			"MapCitySelected": "MapCitySelected"
+			'MapCitySelected': 'MapCitySelected'
 		},
 		TimelineScroll: {
-			"TimePeriodSelected": "TimePeriodSelected"
+			'TimePeriodSelected': 'TimePeriodSelected'
 		}
 
 	}

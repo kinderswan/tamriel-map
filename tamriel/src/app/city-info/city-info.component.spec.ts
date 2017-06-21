@@ -7,19 +7,19 @@ describe('CityInfoComponent', () => {
   let fixture: ComponentFixture<CityInfoComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ CityInfoComponent ]
-    })
-    .compileComponents();
+	TestBed.configureTestingModule({
+		declarations: [ CityInfoComponent ]
+	})
+	.compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CityInfoComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+	fixture = TestBed.createComponent(CityInfoComponent);
+	component = fixture.componentInstance;
+	fixture.detectChanges();
   });
 
   it('should be created', () => {
-    expect(component).toBeTruthy();
+	expect(component).toBeTruthy();
   });
 });

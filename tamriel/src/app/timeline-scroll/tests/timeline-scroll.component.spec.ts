@@ -7,19 +7,19 @@ describe('TimelineScrollComponent', () => {
   let fixture: ComponentFixture<TimelineScrollComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ TimelineScrollComponent ]
-    })
-    .compileComponents();
+	TestBed.configureTestingModule({
+		declarations: [ TimelineScrollComponent ]
+	})
+	.compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TimelineScrollComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+	fixture = TestBed.createComponent(TimelineScrollComponent);
+	component = fixture.componentInstance;
+	fixture.detectChanges();
   });
 
   it('should be created', () => {
-    expect(component).toBeTruthy();
+	expect(component).toBeTruthy();
   });
 });
