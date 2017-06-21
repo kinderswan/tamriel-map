@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { CityMarker } from "./../models/cityMarker";
 
 @Injectable()
-export class TimelineScrollService {
+export class MapLayoutService {
 
   constructor(private http: Http) {
   }
@@ -16,19 +16,12 @@ export class TimelineScrollService {
   getCities(): Observable<CityMarker[]> {
     return this.http.get(this.allCitiesUrl, {
       headers: this.appendCORSHeaders()
-    }).map(this.extractCities);
+    }).map(res => res.json());
   }
 
-  private extractCities(res: Response): CityMarker[] {
-    let body = res.json();
-    return [new CityMarker("1", 250, 350, "")]
-  }
-
+ 
   private appendCORSHeaders(): Headers {
     var headers = new Headers();
-    /*headers.append("Access-Control-Allow-Origin", "*");
-    headers.append("Access-Control-Allow-Headers", "X-Requested-With");
-    headers.append("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");*/
     return headers;
   }
 

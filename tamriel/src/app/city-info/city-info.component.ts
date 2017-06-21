@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Injectable, ViewChild, ElementRef } from '@angular/core';
-import { City } from '../models/city';
+import { CityMarker } from '../models/cityMarker';
 import { EventDispatcher, Events } from '../shared/eventDispatcher'
 
 @Component({

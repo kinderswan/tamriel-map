@@ -5,6 +5,7 @@ import { MapLayoutComponent }   from '../map-layout/map-layout.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/layout', pathMatch: 'full' },
+  { path: 'layout', redirectTo: '/layout', pathMatch: 'full' },
   { path: 'layout',  component: MapLayoutComponent },
 ];
 

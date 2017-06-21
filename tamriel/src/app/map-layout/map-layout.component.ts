@@ -1,21 +1,19 @@
 import { Component, OnInit, ElementRef, AfterViewInit, ViewChild, EventEmitter, Input, Output, Injectable } from '@angular/core';
-import { City } from '../models/city';
+import { CityMarker } from '../models/cityMarker';
 import { TimePeriod } from '../models/timePeriod';
-import { EventDispatcher, Events } from '../shared/eventDispatcher'
+import { EventDispatcher, Events } from '../shared/eventDispatcher';
+import { MapLayoutService } from './map-layout.service';
 
 @Component({
   selector: 'app-map-layout',
   templateUrl: './map-layout.component.html',
   styleUrls: ['./map-layout.component.css'],
-  providers: [EventDispatcher]
+  providers: [EventDispatcher, MapLayoutService]
 })
 
 export class MapLayoutComponent implements OnInit {
 
-  eventDispatcher: EventDispatcher;
-  
-  constructor(eventDispatcher: EventDispatcher) {
-    this.eventDispatcher = eventDispatcher;
+  constructor(private eventDispatcher: EventDispatcher, private mapService: MapLayoutService) {
   }
 
   ngOnInit() { }
@@ -32,11 +30,11 @@ export class MapLayoutComponent implements OnInit {
 
   @Input() periodInfo: TimePeriod;
 
-  private addMapPoints(cities: Array<City>): void {
+  private addMapPoints(cities: Array<CityMarker>): void {
     cities.forEach((x) => this.createMapPoint(x.Name, x.PositionX, x.PositionY));
   }
 
-  private createMapPoint(className: string, x: number, y: number) {
+  private createMapPoint(className: any, x: number, y: number) {
     let svgDocument = this.mapLayoutImage.nativeElement;
     let shape: SVGGraphicsElement = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     shape.setAttributeNS(null, "cx", x.toString());
@@ -50,16 +48,16 @@ export class MapLayoutComponent implements OnInit {
 
 
   private handleShapeClick(event): void {
-    let clickedCityModel = new City(event.target.className.baseVal, 0, 0);
+    let clickedCityModel = new CityMarker(event.target.className.baseVal, 0, 0, "");
     this.eventDispatcher.publish(Events.Components.MapLayout.MapCitySelected, clickedCityModel);
-  } 
+  }
 
   private subscribeForEvents(): void {
     this.eventDispatcher.subscribe(Events.Components.TimelineScroll.TimePeriodSelected, this.onTimePeriodClicked, this)
   }
 
-  private onTimePeriodClicked(event: any): void{
-    let cities: Array<City> = event.detail;
-    this.addMapPoints(cities);
+  private onTimePeriodClicked(event: any): void {
+    let timePeriodId: string = event.detail;
+    this.mapService.getCities().subscribe(markers => this.addMapPoints(markers), error => console.log(error));
   }
 }

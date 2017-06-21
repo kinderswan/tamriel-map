@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild, EventEmitter, Output, Injectable } from '@angular/core';
 import { TimePeriod } from "../models/timePeriod";
-import { City } from "../models/city";
+import { CityMarker } from "../models/cityMarker";
 import { EventDispatcher, Events } from '../shared/eventDispatcher';
 import { TimelineScrollService } from "./timeline-scroll.service"
 
@@ -48,16 +48,14 @@ export class TimelineScrollComponent implements OnInit {
   }
 
   handleBlockClick(event): void {
-    var cities = this.timePeriodCollection.find((x) => x.Id === event.target.dataset.timeperiod).Cities;
-
-    this.eventDispatcher.publish(Events.Components.TimelineScroll.TimePeriodSelected, cities);
+    var timePeriod = event.target.dataset.timeperiod;
+    this.eventDispatcher.publish(Events.Components.TimelineScroll.TimePeriodSelected, timePeriod);
   }
 
   testPeriod(): void{
     let timePeriod = new TimePeriod();
-    timePeriod.StartTime = "3E200"
-    timePeriod.EndTime = "3E400"
-    timePeriod.Cities = [new City("TestName", 500, 500)];
+    timePeriod.StartTime = "3E200";
+    timePeriod.EndTime = "3E400";
     timePeriod.Id = "12345";
     this.timePeriodCollection = [timePeriod];
   }
