@@ -1,6 +1,6 @@
 export class EventDispatcher {
 
-	public subscribe(eventName: string, callback: {}, context: {}): void {
+	public subscribe(eventName: string, callback: any, context: any): void {
 		window.addEventListener(eventName, callback.bind(context), false);
 	}
 

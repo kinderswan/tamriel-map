@@ -29,9 +29,9 @@
       true,
       140
     ],
-    "member-access": true,
+    "member-access": false,
     "member-ordering": [
-      true,
+      false,
       "static-before-instance",
       "variables-before-functions"
     ],
@@ -77,7 +77,7 @@
     "prefer-const": true,
     "quotemark": [
       true,
-      "single"
+      "double"
     ],
     "radix": true,
     "semicolon": [

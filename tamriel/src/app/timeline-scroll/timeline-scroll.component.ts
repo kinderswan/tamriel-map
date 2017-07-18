@@ -1,13 +1,14 @@
-import { Component, OnInit, ElementRef, ViewChild, EventEmitter, Output, Injectable } from '@angular/core';
-import { TimePeriod } from '../models/timePeriod';
-import { CityMarker } from '../models/cityMarker';
-import { EventDispatcher, Events } from '../shared/eventDispatcher';
-import { TimelineScrollService } from './timeline-scroll.service'
+import { Component, OnInit, ElementRef, ViewChild, EventEmitter, Output, Injectable } from "@angular/core";
+import { TimePeriod } from "../models/timePeriod";
+import { CityMarker } from "../models/cityMarker";
+import { DateMarker } from "../models/dateMarker";
+import { EventDispatcher, Events } from "../shared/eventDispatcher";
+import { TimelineScrollService } from "./timeline-scroll.service"
 
 @Component({
-  selector: 'app-timeline-scroll',
-  templateUrl: './timeline-scroll.component.html',
-  styleUrls: ['./timeline-scroll.component.css'],
+  selector: "app-timeline-scroll",
+  templateUrl: "./timeline-scroll.component.html",
+  styleUrls: ["./timeline-scroll.component.css"],
   providers: [EventDispatcher, TimelineScrollService]
 })
 
@@ -16,12 +17,7 @@ export class TimelineScrollComponent implements OnInit {
 
   timePeriodCollection: Array<TimePeriod>;
 
-  eventDispatcher: EventDispatcher;
-  timelineService: TimelineScrollService;
-
-  constructor(eventDispatcher: EventDispatcher, timelineService: TimelineScrollService) {
-	this.eventDispatcher = eventDispatcher;
-	this.timelineService = timelineService;
+  constructor(private eventDispatcher: EventDispatcher, private timelineService: TimelineScrollService) {
 
   }
 
@@ -29,7 +25,7 @@ export class TimelineScrollComponent implements OnInit {
 	this.buildTimeMap();
   }
 
-  @ViewChild('timeLineScroll') timeLineScroll: ElementRef;
+  @ViewChild("timeLineScroll") timeLineScroll: ElementRef;
 
 
   private buildTimeMap(): void {
@@ -38,25 +34,25 @@ export class TimelineScrollComponent implements OnInit {
   }
 
   private createTimeBlock(period: TimePeriod): HTMLElement {
-	const block = document.createElement('div');
-	block.setAttribute('class', 'timeBlock');
-	block.setAttribute('data-timeperiod', period.Id)
+	const block = document.createElement("div");
+	block.setAttribute("class", "timeBlock");
+	block.setAttribute("data-timeperiod", period.Id)
 	block.textContent = period.EndTime + period.StartTime;
-	block.addEventListener('click', this.handleBlockClick.bind(this), false);
+	block.addEventListener("click", this.handleBlockClick.bind(this), false);
 
 	return block;
   }
 
   handleBlockClick(event): void {
 	const timePeriod = event.target.dataset.timeperiod;
-	this.eventDispatcher.publish(Events.Components.TimelineScroll.TimePeriodSelected, timePeriod);
+	this.eventDispatcher.publish(Events.Components.TimelineScroll["TimePeriodSelected"], timePeriod);
   }
 
   testPeriod(): void{
 	const timePeriod = new TimePeriod();
-	timePeriod.StartTime = '3E200';
-	timePeriod.EndTime = '3E400';
-	timePeriod.Id = '12345';
+	timePeriod.StartTime = "3E200";
+	timePeriod.EndTime = "3E400";
+	timePeriod.Id = "12345";
 	this.timePeriodCollection = [timePeriod];
   }
 }

@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Injectable, ViewChild, ElementRef } from '@angular/core';
-import { CityMarker } from '../models/cityMarker';
-import { EventDispatcher, Events } from '../shared/eventDispatcher'
+import { Component, OnInit, Input, Injectable, ViewChild, ElementRef } from "@angular/core";
+import { CityMarker } from "../models/cityMarker";
+import { EventDispatcher, Events } from "../shared/eventDispatcher"
 
 @Component({
-  selector: 'app-city-info',
-  templateUrl: './city-info.component.html',
-  styleUrls: ['./city-info.component.css'],
+  selector: "app-city-info",
+  templateUrl: "./city-info.component.html",
+  styleUrls: ["./city-info.component.css"],
   providers: [EventDispatcher]
 })
 
@@ -29,7 +29,7 @@ export class CityInfoComponent implements OnInit {
   }
 
   private subscribeForEvents(): void {
-	this.eventDispatcher.subscribe(Events.Components.MapLayout.MapCitySelected, this.onCityClicked, this)
+	this.eventDispatcher.subscribe(Events.Components.MapLayout["MapCitySelected"], this.onCityClicked, this)
   }
 
 }
