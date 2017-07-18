@@ -37,7 +37,7 @@ export class TimelineScrollComponent implements OnInit {
 	const block = document.createElement("div");
 	block.setAttribute("class", "timeBlock");
 	block.setAttribute("data-timeperiod", period.Id)
-	block.textContent = period.EndTime + period.StartTime;
+	block.textContent = period.Id;
 	block.addEventListener("click", this.handleBlockClick.bind(this), false);
 
 	return block;
@@ -50,9 +50,8 @@ export class TimelineScrollComponent implements OnInit {
 
   testPeriod(): void{
 	const timePeriod = new TimePeriod();
-	timePeriod.StartTime = "3E200";
-	timePeriod.EndTime = "3E400";
-	timePeriod.Id = "12345";
+	timePeriod.StartTime = new DateMarker(200, "4E");
+	timePeriod.EndTime = new DateMarker(210, "4E");
 	this.timePeriodCollection = [timePeriod];
   }
 }

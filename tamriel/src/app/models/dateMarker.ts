@@ -1,4 +1,9 @@
 export class DateMarker {
-	Year: string;
+	Year: number;
 	Epoch: string;
+
+	constructor(year: number, epoch: string) {
+		this.Year = year;
+		this.Epoch = epoch;
+	};
 }
