@@ -1,3 +1,11 @@
-<p #cityInfo>
- {{cityNameDisplayed}}
-</p>
+<div #cityInfo>
+	<div>{{cityDisplayed?.PointName}}</div>
+	<ul>
+		<li *ngFor="let info of cityDisplayed?.Info">
+			<div>{{info.Mentioned.Epoch + info.Mentioned.Year}}</div>
+			<div [innerHTML]="info.InfoText | keepHtml"></div>
+		</li>
+	</ul>
+	<div>{{cityFullInfo?.PointName}}</div>
+	<div [innerHTML]="cityFullInfo?.Info | keepHtml"></div>
+</div>

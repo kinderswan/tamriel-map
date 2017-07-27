@@ -15,7 +15,8 @@ export const Events: { Components: { CityInfo: {}, MapLayout: {}, TimelineScroll
 	Components: {
 		CityInfo: {},
 		MapLayout: {
-			'MapCitySelected': 'MapCitySelected'
+			'MapCitySelected': 'MapCitySelected',
+			'MapFlagSelected': 'MapFlagSelected'
 		},
 		TimelineScroll: {
 			'TimePeriodSelected': 'TimePeriodSelected'

@@ -4,47 +4,94 @@
 		"RelativeX": 342,
 		"RelativeY": 117,
 		"Province": "High Rock",
-		"Mentioned": []
+		"Mentioned": [
+			{
+				"Year": 201,
+				"Epoch": "3E"
+			},
+			{
+				"Year": 150,
+				"Epoch": "2E"
+			},
+			{
+				"Year": 100,
+				"Epoch": "4E"
+			}
+		]
 	},
 	{
 		"PointName": "Pharnhelm",
 		"RelativeX": 286,
-		"RelativeY": 210,
+		"RelativeY": 209,
 		"Province": "High Rock",
-		"Mentioned": []
+		"Mentioned": [
+			{
+				"Year": 315,
+				"Epoch": "3E"
+			},
+			{
+				"Year": 800,
+				"Epoch": "1E"
+			},
+			{
+				"Year": 400,
+				"Epoch": "2E"
+			},
+			{
+				"Year": 150,
+				"Epoch": "4E"
+			}
+		]
 	},
 	{
 		"PointName": "Camlorn",
-		"RelativeX": 108,
-		"RelativeY": 348,
+		"RelativeX": 109,
+		"RelativeY": 346,
 		"Province": "High Rock",
-		"Mentioned": []
+		"Mentioned": [
+			{
+				"Year": 47,
+				"Epoch": "3E"
+			},
+			{
+				"Year": 30,
+				"Epoch": "1E"
+			},
+			{
+				"Year": 25,
+				"Epoch": "1E"
+			},
+			{
+				"Year": 34,
+				"Epoch": "4E"
+			}
+		]
 	},
 	{
 		"PointName": "Daggerfall",
 		"RelativeX": 68,
-		"RelativeY": 460,
+		"RelativeY": 457,
 		"Province": "High Rock",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Wayrest",
 		"RelativeX": 320,
-		"RelativeY": 351,
+		"RelativeY": 349,
 		"Province": "High Rock",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Skaven",
 		"RelativeX": 458,
-		"RelativeY": 391,
+		"RelativeY": 389,
 		"Province": "Hammerfell",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Dragonstar",
 		"RelativeX": 552,
-		"RelativeY": 302,
+		"RelativeY": 300,
 		"Province": "Hammerfell",
 		"Mentioned": []
 	},
@@ -72,56 +119,61 @@
 	{
 		"PointName": "Sentinel",
 		"RelativeX": 191,
-		"RelativeY": 469,
+		"RelativeY": 466,
 		"Province": "Hammerfell",
-		"Mentioned": []
+		"Mentioned": [
+			{
+				"Year": 2,
+				"Epoch": "1E"
+			}
+		]
 	},
 	{
-		"PointName": "Hegathe",
+		"PointName": "Helgathe",
 		"RelativeX": 183,
-		"RelativeY": 625,
+		"RelativeY": 622,
 		"Province": "Hammerfell",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Gilane",
-		"RelativeX": 290,
-		"RelativeY": 585,
+		"RelativeX": 291,
+		"RelativeY": 582,
 		"Province": "Hammerfell",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Taneth",
 		"RelativeX": 417,
-		"RelativeY": 580,
+		"RelativeY": 577,
 		"Province": "Hammerfell",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Rihad",
 		"RelativeX": 521,
-		"RelativeY": 679,
+		"RelativeY": 674,
 		"Province": "Hammerfell",
 		"Mentioned": []
 	},
 	{
-		"PointName": "Stros M'Kai",
+		"PointName": "Stros M&#39;Kai",
 		"RelativeX": 232,
-		"RelativeY": 734,
+		"RelativeY": 730,
 		"Province": "Hammerfell",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Elinhir",
 		"RelativeX": 755,
-		"RelativeY": 408,
+		"RelativeY": 406,
 		"Province": "Hammerfell",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Markarth Side",
-		"RelativeX": 713,
-		"RelativeY": 233,
+		"RelativeX": 711,
+		"RelativeY": 231,
 		"Province": "Skyrim",
 		"Mentioned": []
 	},
@@ -148,365 +200,365 @@
 	},
 	{
 		"PointName": "Windhelm",
-		"RelativeX": 1070,
-		"RelativeY": 196,
+		"RelativeX": 1069,
+		"RelativeY": 197,
 		"Province": "Skyrim",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Whiterun",
 		"RelativeX": 964,
-		"RelativeY": 298,
+		"RelativeY": 296,
 		"Province": "Skyrim",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Falkreath",
-		"RelativeX": 790,
-		"RelativeY": 407,
+		"RelativeX": 791,
+		"RelativeY": 405,
 		"Province": "Skyrim",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Riften",
 		"RelativeX": 1130,
-		"RelativeY": 408,
+		"RelativeY": 406,
 		"Province": "Skyrim",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Bruma",
-		"RelativeX": 913,
-		"RelativeY": 479,
+		"RelativeX": 912,
+		"RelativeY": 476,
 		"Province": "Cyrodill",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Chorrol",
 		"RelativeX": 774,
-		"RelativeY": 583,
+		"RelativeY": 580,
 		"Province": "Cyrodill",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Anvil",
 		"RelativeX": 567,
-		"RelativeY": 800,
+		"RelativeY": 796,
 		"Province": "Cyrodill",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Kvatch",
-		"RelativeX": 652,
-		"RelativeY": 749,
+		"RelativeX": 651,
+		"RelativeY": 745,
 		"Province": "Cyrodill",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Skingrad",
-		"RelativeX": 789,
-		"RelativeY": 736,
+		"RelativeX": 788,
+		"RelativeY": 731,
 		"Province": "Cyrodill",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Imperial City",
 		"RelativeX": 966,
-		"RelativeY": 629,
+		"RelativeY": 626,
 		"Province": "Cyrodill",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Cheydinhall",
 		"RelativeX": 1144,
-		"RelativeY": 560,
+		"RelativeY": 557,
 		"Province": "Cyrodill",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Bravil",
 		"RelativeX": 1034,
-		"RelativeY": 817,
+		"RelativeY": 813,
 		"Province": "Cyrodill",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Leyawiin",
 		"RelativeX": 1069,
-		"RelativeY": 1003,
+		"RelativeY": 997,
 		"Province": "Cyrodill",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Arenthia",
 		"RelativeX": 794,
-		"RelativeY": 802,
+		"RelativeY": 797,
 		"Province": "Valenwood",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Falinesti",
-		"RelativeX": 591,
-		"RelativeY": 892,
+		"RelativeX": 592,
+		"RelativeY": 886,
 		"Province": "Valenwood",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Silvenar",
 		"RelativeX": 658,
-		"RelativeY": 927,
+		"RelativeY": 921,
 		"Province": "Valenwood",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Woodhearth",
 		"RelativeX": 488,
-		"RelativeY": 1051,
+		"RelativeY": 1045,
 		"Province": "Valenwood",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Greenheart",
 		"RelativeX": 609,
-		"RelativeY": 1104,
+		"RelativeY": 1097,
 		"Province": "Valenwood",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Elden Root",
-		"RelativeX": 717,
-		"RelativeY": 1035,
+		"RelativeX": 716,
+		"RelativeY": 1028,
 		"Province": "Valenwood",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Haven",
 		"RelativeX": 834,
-		"RelativeY": 1148,
+		"RelativeY": 1141,
 		"Province": "Valenwood",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Southpoint",
 		"RelativeX": 734,
-		"RelativeY": 1154,
+		"RelativeY": 1147,
 		"Province": "Valenwood",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Riverhold",
 		"RelativeX": 907,
-		"RelativeY": 814,
+		"RelativeY": 809,
 		"Province": "Elsweyr",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Dune",
 		"RelativeX": 817,
-		"RelativeY": 854,
+		"RelativeY": 849,
 		"Province": "Elsweyr",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Orcrest",
 		"RelativeX": 911,
-		"RelativeY": 881,
+		"RelativeY": 876,
 		"Province": "Elsweyr",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Rimmen",
 		"RelativeX": 1025,
-		"RelativeY": 894,
+		"RelativeY": 888,
 		"Province": "Elsweyr",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Corinth",
 		"RelativeX": 943,
-		"RelativeY": 1039,
+		"RelativeY": 1033,
 		"Province": "Elsweyr",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Torval",
 		"RelativeX": 869,
-		"RelativeY": 1115,
+		"RelativeY": 1108,
 		"Province": "Elsweyr",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Senchal",
 		"RelativeX": 1047,
-		"RelativeY": 1184,
+		"RelativeY": 1177,
 		"Province": "Elsweyr",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Firsthold",
 		"RelativeX": 276,
-		"RelativeY": 886,
+		"RelativeY": 881,
 		"Province": "Summerset Islands",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Lillandril",
 		"RelativeX": 77,
-		"RelativeY": 975,
+		"RelativeY": 970,
 		"Province": "Summerset Islands",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Cloudrest",
 		"RelativeX": 201,
-		"RelativeY": 963,
+		"RelativeY": 957,
 		"Province": "Summerset Islands",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Skywatch",
 		"RelativeX": 346,
-		"RelativeY": 997,
+		"RelativeY": 991,
 		"Province": "Summerset Islands",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Shimmerene",
 		"RelativeX": 262,
-		"RelativeY": 1079,
+		"RelativeY": 1072,
 		"Province": "Summerset Islands",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Alinor",
 		"RelativeX": 113,
-		"RelativeY": 1106,
+		"RelativeY": 1099,
 		"Province": "Summerset Islands",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Sunhold",
-		"RelativeX": 180,
-		"RelativeY": 1163,
+		"RelativeX": 179,
+		"RelativeY": 1156,
 		"Province": "Summerset Islands",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Dusk",
-		"RelativeX": 306,
-		"RelativeY": 1171,
+		"RelativeX": 305,
+		"RelativeY": 1164,
 		"Province": "Summerset Islands",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Stormhold",
-		"RelativeX": 1364,
-		"RelativeY": 815,
+		"RelativeX": 1363,
+		"RelativeY": 810,
 		"Province": "Black Marsh",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Thorn",
 		"RelativeX": 1526,
-		"RelativeY": 825,
+		"RelativeY": 820,
 		"Province": "Black Marsh",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Gideon",
 		"RelativeX": 1180,
-		"RelativeY": 1022,
+		"RelativeY": 1015,
 		"Province": "Black Marsh",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Helstrom",
 		"RelativeX": 1360,
-		"RelativeY": 981,
+		"RelativeY": 975,
 		"Province": "Black Marsh",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Archon",
-		"RelativeX": 1509,
-		"RelativeY": 1113,
+		"RelativeX": 1508,
+		"RelativeY": 1106,
 		"Province": "Black Marsh",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Blackrose",
 		"RelativeX": 1340,
-		"RelativeY": 1165,
+		"RelativeY": 1158,
 		"Province": "Black Marsh",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Soulrest",
 		"RelativeX": 1203,
-		"RelativeY": 1196,
+		"RelativeY": 1188,
 		"Province": "Black Marsh",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Lilmoth",
 		"RelativeX": 1411,
-		"RelativeY": 1223,
+		"RelativeY": 1215,
 		"Province": "Black Marsh",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Tear",
 		"RelativeX": 1606,
-		"RelativeY": 780,
+		"RelativeY": 775,
 		"Province": "Morrowind",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Narsis",
 		"RelativeX": 1424,
-		"RelativeY": 697,
+		"RelativeY": 693,
 		"Province": "Morrowind",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Mournhold",
-		"RelativeX": 1512,
-		"RelativeY": 620,
+		"RelativeX": 1511,
+		"RelativeY": 616,
 		"Province": "Morrowind",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Necrom",
 		"RelativeX": 1688,
-		"RelativeY": 446,
+		"RelativeY": 444,
 		"Province": "Morrowind",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Blacklight",
-		"RelativeX": 1113,
-		"RelativeY": 191,
+		"RelativeX": 1133,
+		"RelativeY": 190,
 		"Province": "Morrowind",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Vivec",
 		"RelativeX": 1376,
-		"RelativeY": 486,
+		"RelativeY": 484,
 		"Province": "Vvanderfell",
 		"Mentioned": []
 	},
 	{
 		"PointName": "Balmora",
-		"RelativeX": 1321,
-		"RelativeY": 439,
+		"RelativeX": 1322,
+		"RelativeY": 436,
 		"Province": "Vvanderfell",
 		"Mentioned": []
 	},
 	{
-		"PointName": "Ald'ruhn",
+		"PointName": "Ald&#39;ruhn",
 		"RelativeX": 1346,
-		"RelativeY": 360,
+		"RelativeY": 359,
 		"Province": "Vvanderfell",
 		"Mentioned": []
 	},

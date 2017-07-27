@@ -15,13 +15,19 @@ var app = express();
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Cache-Control', 'no-cache');
   next();
 });
 
 app.get('/', function(req, res) {
   res.send('Hello Seattle\n');
 });
+require('./models/dateMarker');
 require('./models/cityMarker');
+require('./models/timePeriod');
+require('./models/infoYear');
+require('./models/cityInfo');
+require('./models/cityFullInfo');
 require('./routes')(app);
 
 app.listen(451);

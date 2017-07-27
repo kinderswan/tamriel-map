@@ -14,15 +14,21 @@ export class MapLayoutService {
   private allCitiesUrl = "http://10.143.13.41:451/api/cities"
 
   getCities(): Observable<CityMarker[]> {
-	return this.http.get(this.allCitiesUrl, {
-		headers: this.appendCORSHeaders()
-	}).map(res => res.json());
+    return this.http.get(this.allCitiesUrl, {
+      headers: this.appendCORSHeaders()
+    }).map(res => res.json());
+  }
+
+   getCitiesByTimePeriod(epoch, start, end): Observable<CityMarker[]> {
+    return this.http.get(`${this.allCitiesUrl}/${epoch}/${start}/${end}`, {
+      headers: this.appendCORSHeaders()
+    }).map(res => res.json());
   }
 
 
   private appendCORSHeaders(): Headers {
-	const headers = new Headers();
-	return headers;
+    const headers = new Headers();
+    return headers;
   }
 
 }

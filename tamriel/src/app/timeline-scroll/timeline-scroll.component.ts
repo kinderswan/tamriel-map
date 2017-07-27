@@ -22,36 +22,44 @@ export class TimelineScrollComponent implements OnInit {
   }
 
   ngOnInit() {
-	this.buildTimeMap();
+    this.getAllTimePeriods();
   }
 
   @ViewChild("timeLineScroll") timeLineScroll: ElementRef;
+  @ViewChild("longdiv") londDiv: ElementRef;
 
 
-  private buildTimeMap(): void {
-	this.testPeriod();
-	this.timeLineScroll.nativeElement.append(this.createTimeBlock(this.timePeriodCollection[0]));
+  private buildTimeMap(periods): void {
+    this.timePeriodCollection = periods;
+    this.timePeriodCollection.forEach(item=>{
+      this.londDiv.nativeElement.append(this.createTimeBlock(item));
+    })    
   }
 
   private createTimeBlock(period: TimePeriod): HTMLElement {
-	const block = document.createElement("div");
-	block.setAttribute("class", "timeBlock");
-	block.setAttribute("data-timeperiod", period.Id)
-	block.textContent = period.Id;
-	block.addEventListener("click", this.handleBlockClick.bind(this), false);
+    const block = document.createElement("div");
+    block.setAttribute("class", "timeBlock");
+    block.setAttribute("data-startyear", period.StartTime.Year.toString());
+    block.setAttribute("data-startepoch", period.StartTime.Epoch);
+    block.setAttribute("data-endyear", period.EndTime.Year.toString());
+    block.setAttribute("data-endepoch", period.EndTime.Epoch);
+    block.textContent = `${period.StartTime.Epoch + period.StartTime.Year}-${period.EndTime.Epoch + period.EndTime.Year}`
+    block.addEventListener("click", this.handleBlockClick.bind(this), false);
 
-	return block;
+    return block;
   }
 
   handleBlockClick(event): void {
-	const timePeriod = event.target.dataset.timeperiod;
-	this.eventDispatcher.publish(Events.Components.TimelineScroll["TimePeriodSelected"], timePeriod);
+    var period = new TimePeriod();
+    period.StartTime = new DateMarker(event.target.dataset.startyear, event.target.dataset.startepoch);
+    period.EndTime = new DateMarker(event.target.dataset.endyear, event.target.dataset.endepoch);
+    this.eventDispatcher.publish(Events.Components.TimelineScroll["TimePeriodSelected"], period);
   }
 
-  testPeriod(): void{
-	const timePeriod = new TimePeriod();
-	timePeriod.StartTime = new DateMarker(200, "4E");
-	timePeriod.EndTime = new DateMarker(210, "4E");
-	this.timePeriodCollection = [timePeriod];
+  private getAllTimePeriods(): void {
+    var x = [];
+    this.timelineService.getTimePeriods().subscribe(periods => this.buildTimeMap(periods), error => console.log(error));
   }
+
+
 }

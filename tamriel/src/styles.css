@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.timeBlock{
+	width: 12em;
+	height: 12em;
+    border: 3px solid #000000;
+    display: inline-block;
+    border: 1px solid black;
+}

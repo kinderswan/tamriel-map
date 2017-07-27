@@ -1,0 +1,14 @@
+[
+	{
+		"PointName": "Camlorn",
+		"Info": [
+			{
+				"InfoText": "Lorem Ipsum",
+				"Mentioned": {
+					"Epoch": "1E",
+					"Year": 30
+				}
+			}
+		]
+	}
+]
