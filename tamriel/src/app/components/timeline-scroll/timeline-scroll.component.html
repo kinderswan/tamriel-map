@@ -1,4 +1,7 @@
-
 <div id="timeLineScroll" #timeLineScroll>
-    <div id="longdiv" #longdiv></div>
+	<div id="longdiv" #longdiv>
+		<ng-container *ngFor="let period of timePeriods">
+			<app-timeline-block [period]="period" (onClick)="handleBlockClick($event)"></app-timeline-block>
+		</ng-container>
+	</div>
 </div>
