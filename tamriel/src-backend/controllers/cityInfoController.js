@@ -24,7 +24,7 @@ exports.getFullInfoForCity = function (req, res) {
 	});
 };
 
-exports.import = function (req, res) {
+exports.importShortInfo = function (req, res) {
 	CityInfo.remove({},
 		function (err) {
 			console.log("cleared");

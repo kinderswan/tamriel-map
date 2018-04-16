@@ -12,6 +12,6 @@ module.exports = function(app){
     var cityInfoController = require("./controllers/cityInfoController");
     app.get('/api/info/:cityName/:epoch/:years', cityInfoController.getInfoForCity);
     app.get('/api/info/:cityName', cityInfoController.getFullInfoForCity);
-    app.get('/api/info/seed', cityInfoController.import);
+    app.get('/api/shortinfo/seed', cityInfoController.importShortInfo);
     app.get('/api/fullinfo/seed', cityInfoController.importFullInfo);
 };

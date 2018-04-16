@@ -19,9 +19,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/', function(req, res) {
-  res.send('Hello Seattle\n');
-});
 require('./models/dateMarker');
 require('./models/cityMarker');
 require('./models/timePeriod');

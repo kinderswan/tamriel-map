@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Injectable, ViewChild, ElementRef } from "@angular/core";
-import { CityMarker } from "../models/cityMarker";
-import { CityInfo } from "../models/cityInfo";
-import { EventDispatcher, Events } from "../shared/eventDispatcher"
-import { CityInfoService } from "./city-info.service"
-import { CityFullInfo } from "../models/cityFullInfo"
+import { CityMarker } from "../../models/cityMarker";
+import { CityInfo } from "../../models/cityInfo";
+import { EventDispatcher, Events } from "../../shared/eventDispatcher"
+import { CityInfoService } from "../../infrastructure/city-info.service"
+import { CityFullInfo } from "../../models/cityFullInfo"
 
 @Component({
   selector: "app-city-info",

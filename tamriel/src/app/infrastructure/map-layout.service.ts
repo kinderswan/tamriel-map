@@ -11,7 +11,7 @@ export class MapLayoutService {
   constructor(private http: Http) {
   }
 
-  private allCitiesUrl = "http://10.143.13.41:451/api/cities"
+  private allCitiesUrl = "http://localhost:451/api/cities"
 
   getCities(): Observable<CityMarker[]> {
     return this.http.get(this.allCitiesUrl, {

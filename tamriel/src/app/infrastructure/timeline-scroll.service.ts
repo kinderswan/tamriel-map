@@ -11,7 +11,7 @@ export class TimelineScrollService {
   constructor(private http: Http) {
   }
 
-  private periodsUrl = "http://10.143.13.41:451/api/time"
+  private periodsUrl = "http://localhost:451/api/time"
 
   getTimePeriods(): Observable<TimePeriod[]> {
     return this.http.get(this.periodsUrl, {

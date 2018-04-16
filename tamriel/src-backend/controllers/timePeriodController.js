@@ -39,9 +39,6 @@ var generateTimePeriods = function () {
 exports.getAll = function (req, res) {
 	var periods = generateTimePeriods();
 	return res.send(periods);
-	/*CityMarker.find({}, (err, results) => {
-		return res.send(results);
-	});*/
 };
 
 exports.import = function (req, res) {
