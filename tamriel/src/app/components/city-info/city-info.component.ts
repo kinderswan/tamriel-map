@@ -35,10 +35,17 @@ export class CityInfoComponent implements OnInit {
 	}
 
 	private displayCityDateInfo(result: CityInfo) {
+		this.clearAll();
 		this.cityDisplayed = result[0];
 	}
 
 	private displayFullCityInfo(result: CityFullInfo) {
+		this.clearAll();
 		this.cityFullInfo = result[0];
+	}
+
+	private clearAll(){
+		this.cityDisplayed = null;
+		this.cityFullInfo = null;
 	}
 }

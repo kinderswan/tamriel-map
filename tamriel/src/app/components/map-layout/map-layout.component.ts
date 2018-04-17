@@ -23,29 +23,17 @@ export class MapLayoutComponent implements OnInit, AfterViewInit {
 
 	public markers: CityMarker[];
 
+	public timeMarkers: CityMarker[];
+
 	/**
 	 * impl region
 	 */
 
 	@ViewChild("maplayout") mapLayoutImage: ElementRef;
 
-	@Input() periodInfo: TimePeriod;
+	periodInfo: TimePeriod;
 
-	private createFlagPoint(marker: CityMarker, timePeriod: TimePeriod) {
-		const svgDocument = this.mapLayoutImage.nativeElement;
-		const shape: SVGGraphicsElement = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-		shape.setAttributeNS(null, "x", (marker.RelativeX - 8).toString());
-		shape.setAttributeNS(null, "y", (marker.RelativeY - 8).toString());
-		shape.setAttributeNS(null, "width", "16");
-		shape.setAttributeNS(null, "height", "16");
-		shape.setAttributeNS(null, "fill", "blue");
-		shape.setAttributeNS(null, "class", `${marker.PointName} flag`);
-		shape.appendChild(this.createMapPointTimeElement(marker.Mentioned, timePeriod));
-		shape.addEventListener("click", this.handleRectClick.bind(this), false);
-		svgDocument.appendChild(shape);
-	}
-
-	private createMapPointTimeElement(mentioned: Array<DateMarker>, timePeriod: TimePeriod) {
+	private getTimeMentioned(mentioned: Array<DateMarker>, timePeriod: TimePeriod) {
 		const requestedDates = mentioned.filter((mention) => {
 			return (
 				mention.Epoch === timePeriod.StartTime.Epoch &&
@@ -53,25 +41,26 @@ export class MapLayoutComponent implements OnInit, AfterViewInit {
 				mention.Year <= timePeriod.EndTime.Year
 			);
 		});
-		const span = document.createElement("span");
-		span.dataset.epoch = timePeriod.StartTime.Epoch;
-		span.dataset.years = requestedDates
+		return {
+			epoch: timePeriod.StartTime.Epoch,
+			years: requestedDates
 			.map((date) => {
 				return date.Year;
 			})
-			.join(";");
-		return span;
+			.join(";")
+		}
 	}
 
 	private handleShapeClick(data: CityMarker): void {
 		this.eventDispatcher.publish(Events.Components.MapLayout["MapCitySelected"], data.PointName);
 	}
 
-	private handleRectClick(event): void {
+	private handleRectClick(event: CityMarker): void {
+		const times = this.getTimeMentioned(event.Mentioned, this.periodInfo);
 		const data = {
-			epoch: event.target.children[0].dataset.epoch,
-			years: event.target.children[0].dataset.years,
-			cityName: event.target.className.baseVal.split(" ")[0]
+			epoch: times.epoch,
+			years: times.years,
+			cityName: event.PointName
 		};
 
 		this.eventDispatcher.publish(Events.Components.MapLayout["MapFlagSelected"], data);
@@ -82,10 +71,12 @@ export class MapLayoutComponent implements OnInit, AfterViewInit {
 	}
 
 	private onTimePeriodSelected(event: CustomEvent) {
-		const timePeriod = event.detail;
+		this.periodInfo = event.detail;
 		this.mapService
-			.getCitiesByTimePeriod(timePeriod.StartTime.Epoch, timePeriod.StartTime.Year, timePeriod.EndTime.Year)
-			.subscribe((markers) => {});
+			.getCitiesByTimePeriod(this.periodInfo.StartTime.Epoch, this.periodInfo.StartTime.Year, this.periodInfo.EndTime.Year)
+			.subscribe((markers) => {
+				this.timeMarkers = markers;
+			});
 	}
 
 	private getAllMapPoints(): void {
@@ -97,5 +88,9 @@ export class MapLayoutComponent implements OnInit, AfterViewInit {
 		while (elements.length > 0) {
 			elements[0].parentNode.removeChild(elements[0]);
 		}
+	}
+
+	public resetPoints() {
+		this.timeMarkers = [];
 	}
 }

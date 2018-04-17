@@ -8,9 +8,28 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
 export class MapPointComponent {
 	@Input() markers: CityMarker[] = [];
 
+	@Input() timeMarkers: CityMarker[] = [];
+
 	@Output() mapPointClick: EventEmitter<CityMarker> = new EventEmitter<CityMarker>();
 
-	onMapPointClick(marker: CityMarker){
+	@Output() timePointClick: EventEmitter<CityMarker> = new EventEmitter<CityMarker>();
+
+	onMapPointClick(marker: CityMarker) {
 		this.mapPointClick.emit(marker);
+	}
+
+	onTimePointClick(marker: CityMarker) {
+		this.timePointClick.emit(marker);
+	}
+
+	get pointers() {
+		if (!this.timeMarkers) {
+			this.timeMarkers = [];
+		}
+		if (this.markers && this.timeMarkers) {
+			const res = this.markers.filter((x) => this.timeMarkers.map((y) => y.PointName).indexOf(x.PointName) < 0);
+			return res;
+		}
+		return [];
 	}
 }
