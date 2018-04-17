@@ -19,7 +19,28 @@ exports.getInfoForCity = function (req, res) {
 
 exports.getFullInfoForCity = function (req, res) {
 	var cityName = req.param("cityName");
-	CityFullInfo.find({ "PointName": cityName }, function (err, results) {		
+	CityFullInfo.find({ "PointName": cityName }, function (err, results) {
+		return res.send(results);
+	});
+};
+
+exports.getFullInfos = function (req, res) {
+	CityFullInfo.find({}, function (err, results) {
+		return res.send(results);
+	});
+};
+
+exports.saveFullInfos = function (req, res) {
+	var body = req.body;
+	body.forEach(function(info){
+		CityInfo.findOneAndUpdate({PointName: info.PointName}, info.toObject(), {}, function(err, doc){ 		//execute query
+		})
+	})
+
+};
+
+exports.getShortInfos = function (req, res) {
+	CityInfo.find({}, function (err, results) {
 		return res.send(results);
 	});
 };

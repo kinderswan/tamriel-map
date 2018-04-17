@@ -1,6 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var fs = require('fs');
+var bodyParser = require('body-parser');
 
 var mongoUri = 'mongodb://localhost/tamriel';
 mongoose.connect(mongoUri);
@@ -18,6 +19,9 @@ app.use(function(req, res, next) {
   res.header('Cache-Control', 'no-cache');
   next();
 });
+
+
+app.use(bodyParser.json());
 
 require('./models/dateMarker');
 require('./models/cityMarker');

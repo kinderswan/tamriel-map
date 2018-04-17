@@ -11,7 +11,10 @@ module.exports = function(app){
 
     var cityInfoController = require("./controllers/cityInfoController");
     app.get('/api/info/:cityName/:epoch/:years', cityInfoController.getInfoForCity);
-    app.get('/api/info/:cityName', cityInfoController.getFullInfoForCity);
+	app.get('/api/info/:cityName', cityInfoController.getFullInfoForCity);
+	app.get('/api/fullinfo', cityInfoController.getFullInfos);
+	app.post('/api/fullinfo', cityInfoController.saveFullInfos);
+	app.get('/api/shortinfo', cityInfoController.getShortInfos);
     app.get('/api/shortinfo/seed', cityInfoController.importShortInfo);
     app.get('/api/fullinfo/seed', cityInfoController.importFullInfo);
 };
