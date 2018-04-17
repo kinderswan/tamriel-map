@@ -14,6 +14,7 @@ module.exports = function(app){
 	app.get('/api/info/:cityName', cityInfoController.getFullInfoForCity);
 	app.get('/api/fullinfo', cityInfoController.getFullInfos);
 	app.post('/api/fullinfo', cityInfoController.saveFullInfos);
+	app.post('/api/shortinfo', cityInfoController.saveShortInfos);
 	app.get('/api/shortinfo', cityInfoController.getShortInfos);
     app.get('/api/shortinfo/seed', cityInfoController.importShortInfo);
     app.get('/api/fullinfo/seed', cityInfoController.importFullInfo);

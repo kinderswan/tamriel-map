@@ -1,0 +1,19 @@
+<div *ngFor="let city of infos; let i = index">
+	Point name:
+	<input type="text" required [(ngModel)]="city.PointName" />
+	Mentions:
+	<div *ngFor="let info of city?.Info; let j = index">
+		InfoText: <input type="text" required [(ngModel)]="info.InfoText" />
+		Year: <input type="text" required [(ngModel)]="info.Mentioned.Year" />
+		Epoch: <input type="text" required [(ngModel)]="info.Mentioned.Epoch" />
+		<button (click)="removeMention(i, j)">Remove mention</button>
+	</div>
+	<button (click)="addMention(i)">Add mention</button>
+	<button (click)="removeItem(i)">Remove</button>
+	<hr>
+</div>
+<button (click)="addNew()">Add new</button>
+<hr>
+<button (click)="save()">Save</button>
+<hr>
+<button (click)="back()">Back</button>

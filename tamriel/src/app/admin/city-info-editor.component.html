@@ -1,7 +1,8 @@
 <div *ngFor="let info of infos; let i = index">
-	Point name: <input type="text" required [(ngModel)]="info.PointName"/>
-	<br>
-	Info: <textarea type="text" required [(ngModel)]="info.Info"></textarea>
+	Point name:
+	<input type="text" required [(ngModel)]="info.PointName" />
+	<br> Info:
+	<textarea type="text" required [(ngModel)]="info.Info"></textarea>
 	<br>
 	<button (click)="removeItem(i)">Remove</button>
 	<hr>

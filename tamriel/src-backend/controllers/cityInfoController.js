@@ -32,10 +32,20 @@ exports.getFullInfos = function (req, res) {
 
 exports.saveFullInfos = function (req, res) {
 	var body = req.body;
-	body.forEach(function(info){
-		CityInfo.findOneAndUpdate({PointName: info.PointName}, info.toObject(), {}, function(err, doc){ 		//execute query
+	CityFullInfo.remove({}, function(){
+		CityFullInfo.create(body, function(){
+			return res.send("ok");
 		})
-	})
+	});
+};
+
+exports.saveShortInfos = function (req, res) {
+	var body = req.body;
+	CityInfo.remove({}, function(){
+		CityInfo.create(body, function(){
+			return res.send("ok");
+		})
+	});
 
 };
 

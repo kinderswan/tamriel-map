@@ -35,8 +35,24 @@ export class CityInfoService {
 			.map((res) => res.json());
 	}
 
+	getShortCityInfos(): Observable<CityInfo[]> {
+		return this.http
+			.get(`http://localhost:451/api/shortInfo`, {
+				headers: this.appendCORSHeaders()
+			})
+			.map((res) => res.json());
+	}
+
 	saveFullCityInfos(data: CityFullInfo[]): Observable<Response> {
 		const result = this.http.post(`http://localhost:451/api/fullInfo`, data, {
+			headers: this.appendCORSHeaders()
+		});
+
+		return result;
+	}
+
+	saveShortCityInfos(data: CityInfo[]): Observable<Response> {
+		const result = this.http.post(`http://localhost:451/api/shortInfo`, data, {
 			headers: this.appendCORSHeaders()
 		});
 

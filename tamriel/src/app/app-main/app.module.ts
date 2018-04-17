@@ -1,3 +1,4 @@
+import { PeriodInfoEditorComponent } from './../admin/period-info-editor.component';
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
@@ -31,7 +32,8 @@ import { AppComponent } from "./app.component";
 		EscapeHtmlPipe,
 		MainComponent,
 		AdminComponent,
-		CityInfoEditorComponent
+		CityInfoEditorComponent,
+		PeriodInfoEditorComponent
 	],
 	imports: [BrowserModule, AppRoutingModule, HttpModule, CommonModule, FormsModule],
 	providers: [MapLayoutService, TimelineScrollService, CityInfoService, EventDispatcher],

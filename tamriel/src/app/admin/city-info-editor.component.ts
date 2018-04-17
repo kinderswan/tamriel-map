@@ -26,9 +26,11 @@ export class CityInfoEditorComponent implements OnInit {
 	}
 
 	save() {
-		this.service
-			.saveFullCityInfos(
-				this.infos.filter((x) => !!x.PointName)).subscribe((x) => x);
+		this.service.saveFullCityInfos(this.infos.filter((x) => !!x.PointName)).subscribe((x) => {
+			if (x.ok) {
+				alert("saved");
+			}
+		});
 	}
 
 	back() {
