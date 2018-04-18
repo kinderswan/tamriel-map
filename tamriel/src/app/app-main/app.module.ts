@@ -1,4 +1,4 @@
-import { PeriodInfoEditorComponent } from './../admin/period-info-editor.component';
+import { PeriodInfoEditorComponent } from "./../admin/period-info-editor.component";
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
@@ -20,6 +20,7 @@ import { TimelineScrollService } from "./../infrastructure/timeline-scroll.servi
 import { EventDispatcher } from "./../shared/eventDispatcher";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { AdminGuard } from "app/shared/admin.guard";
 
 @NgModule({
 	declarations: [
@@ -36,7 +37,7 @@ import { AppComponent } from "./app.component";
 		PeriodInfoEditorComponent
 	],
 	imports: [BrowserModule, AppRoutingModule, HttpModule, CommonModule, FormsModule],
-	providers: [MapLayoutService, TimelineScrollService, CityInfoService, EventDispatcher],
+	providers: [MapLayoutService, TimelineScrollService, CityInfoService, EventDispatcher, AdminGuard],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}
