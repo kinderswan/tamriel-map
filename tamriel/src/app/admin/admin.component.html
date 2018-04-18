@@ -1,2 +1,11 @@
-<h3 (click)="onClick('editFullCityInfo')">Edit city info</h3>
-<h3 (click)="onClick('editShortCityInfo')">Edit cithy period info</h3>
+<h3>Choose options below to edit info in the database.</h3>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-xs-12" (click)="onClick('editFullCityInfo')">
+			<h4 class="admin-container">Edit city info</h4>
+		</div>
+		<div class="col-md-12 col-sm-12 col-xs-12" (click)="onClick('editShortCityInfo')">
+			<h4 class="admin-container">Edit city period info</h4>
+		</div>
+	</div>
+</div>

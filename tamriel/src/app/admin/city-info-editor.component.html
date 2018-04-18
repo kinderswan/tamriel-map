@@ -1,14 +1,38 @@
-<div *ngFor="let info of infos; let i = index">
-	Point name:
-	<input type="text" required [(ngModel)]="info.PointName" />
-	<br> Info:
-	<textarea type="text" required [(ngModel)]="info.Info"></textarea>
-	<br>
-	<button (click)="removeItem(i)">Remove</button>
-	<hr>
+<div class="container">
+	<div *ngFor="let info of infos; let i = index" class="form-group margin-top-20">
+		<div class="col-md-12">
+			<div class="col-md-2 col-sm-2 col-xs-2 margin-bottom-10">
+				Point name:
+			</div>
+			<div class="col-md-10 col-sm-10 col-xs-10 margin-bottom-10">
+				<input class="form-control" type="text" required [(ngModel)]="info.PointName" />
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-2 col-sm-2 col-xs-2 margin-bottom-10">
+				Info:
+			</div>
+			<div class="col-md-10 col-sm-10 col-xs-10 margin-bottom-10">
+				<textarea class="form-control" type="text" required [(ngModel)]="info.Info"></textarea>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-12 col-sm-12 col-xs-12 margin-bottom-10 text-right">
+				<button class="btn btn-danger" (click)="removeItem(i)">Remove item</button>
+			</div>
+		</div>
+
+	</div>
+	<div class="col-md-12 margin-bottom-40"></div>
+	<div class="col-md-12">
+		<div class="col-md-4 col-sm-4 col-xs-4 margin-bottom-10 text-center">
+			<button class="btn btn-success w100" (click)="addNew()">Add new</button>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-4 margin-bottom-10 text-center">
+			<button class="btn btn-warning w100" (click)="save()">Save</button>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-4 margin-bottom-10 text-center">
+			<button class="btn btn-primary w100" (click)="back()">Back</button>
+		</div>
+	</div>
 </div>
-<button (click)="addNew()">Add new</button>
-<hr>
-<button (click)="save()">Save</button>
-<hr>
-<button (click)="back()">Back</button>
