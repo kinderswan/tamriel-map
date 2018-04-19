@@ -1,27 +1,39 @@
 <div class="container">
-	<div *ngFor="let info of infos; let i = index" class="form-group margin-top-20">
-		<div class="col-md-12">
-			<div class="col-md-2 col-sm-2 col-xs-2 margin-bottom-10">
-				Point name:
-			</div>
-			<div class="col-md-10 col-sm-10 col-xs-10 margin-bottom-10">
-				<input class="form-control" type="text" required [(ngModel)]="info.PointName" />
-			</div>
+	<div class="col-md-12">
+		<div class="col-md-2 col-sm-2 col-xs-2 margin-bottom-10">
+			Search:
 		</div>
-		<div class="col-md-12">
-			<div class="col-md-2 col-sm-2 col-xs-2 margin-bottom-10">
-				Info:
-			</div>
-			<div class="col-md-10 col-sm-10 col-xs-10 margin-bottom-10">
-				<textarea class="form-control" type="text" required [(ngModel)]="info.Info"></textarea>
-			</div>
+		<div class="col-md-10 col-sm-10 col-xs-10 margin-bottom-10">
+			<input class="form-control" type="text" required [(ngModel)]="search" />
 		</div>
-		<div class="col-md-12">
-			<div class="col-md-12 col-sm-12 col-xs-12 margin-bottom-10 text-right">
-				<button class="btn btn-danger" (click)="removeItem(i)">Remove item</button>
-			</div>
-		</div>
+	</div>
+</div>
 
+<div class="container">
+	<div *ngFor="let info of infos; let i = index" class="form-group margin-top-20">
+		<ng-container *ngIf="filter(info.PointName)">
+			<div class="col-md-12">
+				<div class="col-md-2 col-sm-2 col-xs-2 margin-bottom-10">
+					Point name:
+				</div>
+				<div class="col-md-10 col-sm-10 col-xs-10 margin-bottom-10">
+					<input class="form-control" type="text" required [(ngModel)]="info.PointName" />
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="col-md-2 col-sm-2 col-xs-2 margin-bottom-10">
+					Info:
+				</div>
+				<div class="col-md-10 col-sm-10 col-xs-10 margin-bottom-10">
+					<textarea class="form-control" type="text" required [(ngModel)]="info.Info"></textarea>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="col-md-12 col-sm-12 col-xs-12 margin-bottom-10 text-right">
+					<button class="btn btn-danger" (click)="removeItem(i)">Remove item</button>
+				</div>
+			</div>
+		</ng-container>
 	</div>
 	<div class="col-md-12 margin-bottom-40"></div>
 	<div class="col-md-12">

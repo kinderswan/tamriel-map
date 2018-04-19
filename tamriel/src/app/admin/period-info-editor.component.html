@@ -1,54 +1,66 @@
 <div class="container">
-	<div *ngFor="let city of infos; let i = index">
-		<div class="col-md-12">
-			<div class="col-md-2 col-sm-2 col-xs-2 margin-bottom-10">
-				Point name:
-			</div>
-			<div class="col-md-10 col-sm-10 col-xs-10 margin-bottom-10">
-				<input class="form-control" type="text" required [(ngModel)]="city.PointName" />
-			</div>
+	<div class="col-md-12">
+		<div class="col-md-2 col-sm-2 col-xs-2 margin-bottom-10">
+			Search:
 		</div>
-		<div class="col-md-12">
-			<div class="col-md-2 col-sm-2 col-xs-2">Mentions:</div>
-			<div class="col-md-10 col-sm-10 col-xs-10 margin-bottom-10">
-				<div *ngFor="let info of city?.Info; let j = index">
-					<div class="col-md-12">
-						<div class="col-md-2 col-sm-2 col-xs-2 margin-bottom-10">
-							Info:
-						</div>
-						<div class="col-md-10 col-sm-10 col-xs-10 margin-bottom-10">
-							<textarea class="form-control" type="text" required [(ngModel)]="info.InfoText"></textarea>
-						</div>
-						<div class="col-md-2 col-sm-2 col-xs-2 margin-bottom-10">
-							Year:
-						</div>
-						<div class="col-md-10 col-sm-10 col-xs-10 margin-bottom-10">
-							<input class="form-control" type="text" required [(ngModel)]="info.Mentioned.Year" />
-						</div>
+		<div class="col-md-10 col-sm-10 col-xs-10 margin-bottom-10">
+			<input class="form-control" type="text" required [(ngModel)]="search" />
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div *ngFor="let city of infos; let i = index">
+		<ng-container *ngIf="filter(city.PointName)">
+			<div class="col-md-12">
+				<div class="col-md-2 col-sm-2 col-xs-2 margin-bottom-10">
+					Point name:
+				</div>
+				<div class="col-md-10 col-sm-10 col-xs-10 margin-bottom-10">
+					<input class="form-control" type="text" required [(ngModel)]="city.PointName" />
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="col-md-2 col-sm-2 col-xs-2">Mentions:</div>
+				<div class="col-md-10 col-sm-10 col-xs-10 margin-bottom-10">
+					<div *ngFor="let info of city?.Info; let j = index">
+						<div class="col-md-12">
+							<div class="col-md-2 col-sm-2 col-xs-2 margin-bottom-10">
+								Info:
+							</div>
+							<div class="col-md-10 col-sm-10 col-xs-10 margin-bottom-10">
+								<textarea class="form-control" type="text" required [(ngModel)]="info.InfoText"></textarea>
+							</div>
+							<div class="col-md-2 col-sm-2 col-xs-2 margin-bottom-10">
+								Year:
+							</div>
+							<div class="col-md-10 col-sm-10 col-xs-10 margin-bottom-10">
+								<input class="form-control" type="text" required [(ngModel)]="info.Mentioned.Year" />
+							</div>
 
 
-						<div class="col-md-2 col-sm-2 col-xs-2 margin-bottom-10">
-							Epoch:
-						</div>
-						<div class="col-md-10 col-sm-10 col-xs-10 margin-bottom-10">
-							<input type="text" class="form-control" required [(ngModel)]="info.Mentioned.Epoch" />
-						</div>
-						<div class="col-md-12 col-sm-12 col-xs-12 margin-bottom-10 text-right">
-							<button class="btn btn-danger" (click)="removeMention(i, j)">Remove mention</button>
+							<div class="col-md-2 col-sm-2 col-xs-2 margin-bottom-10">
+								Epoch:
+							</div>
+							<div class="col-md-10 col-sm-10 col-xs-10 margin-bottom-10">
+								<input type="text" class="form-control" required [(ngModel)]="info.Mentioned.Epoch" />
+							</div>
+							<div class="col-md-12 col-sm-12 col-xs-12 margin-bottom-10 text-right">
+								<button class="btn btn-danger" (click)="removeMention(i, j)">Remove mention</button>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-4">
-					<button class="btn btn-success margin-bottom-10 w100" (click)="addMention(i)">Add mention</button>
-				</div>
-				<div class="col-md-4">
-					<button class="btn btn-danger margin-bottom-10 w100" (click)="removeItem(i)">Remove item</button>
-				</div>
+					<div class="col-md-4">
+						<button class="btn btn-success margin-bottom-10 w100" (click)="addMention(i)">Add mention</button>
+					</div>
+					<div class="col-md-4">
+						<button class="btn btn-danger margin-bottom-10 w100" (click)="removeItem(i)">Remove item</button>
+					</div>
 
 
+				</div>
 			</div>
-		</div>
-
+		</ng-container>
 	</div>
 	<div class="col-md-12 margin-bottom-40"></div>
 	<div class="col-md-12">

@@ -14,6 +14,7 @@ export class CityMarkerEditorComponent implements OnInit {
 	constructor(private service: MapLayoutService, private router: Router) {}
 
 	public infos: CityMarker[];
+
 	ngOnInit(): void {
 		this.service.getCities().subscribe((x) => (this.infos = x));
 	}
@@ -51,5 +52,11 @@ export class CityMarkerEditorComponent implements OnInit {
 
 	back() {
 		this.router.navigate(["admin"]);
+	}
+
+	public search = "";
+
+	filter(name: string){
+		return this.search === "" || name.toUpperCase().indexOf(this.search.toUpperCase()) >= 0;
 	}
 }

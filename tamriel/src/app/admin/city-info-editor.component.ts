@@ -36,4 +36,10 @@ export class CityInfoEditorComponent implements OnInit {
 	back() {
 		this.router.navigate(["admin"]);
 	}
+
+	public search = "";
+
+	filter(name: string) {
+		return this.search === "" || name.toUpperCase().indexOf(this.search.toUpperCase()) >= 0;
+	}
 }
