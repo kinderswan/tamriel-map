@@ -21,6 +21,7 @@ import { EventDispatcher } from "./../shared/eventDispatcher";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { AdminGuard } from "app/shared/admin.guard";
+import { CityMarkerEditorComponent } from "app/admin/city-marker-editor.component";
 
 @NgModule({
 	declarations: [
@@ -34,7 +35,8 @@ import { AdminGuard } from "app/shared/admin.guard";
 		MainComponent,
 		AdminComponent,
 		CityInfoEditorComponent,
-		PeriodInfoEditorComponent
+		PeriodInfoEditorComponent,
+		CityMarkerEditorComponent
 	],
 	imports: [BrowserModule, AppRoutingModule, HttpModule, CommonModule, FormsModule],
 	providers: [MapLayoutService, TimelineScrollService, CityInfoService, EventDispatcher, AdminGuard],

@@ -8,6 +8,16 @@ exports.getAll = function (req, res) {
 	});
 };
 
+exports.saveCities = function (req, res) {
+	var body = req.body;
+	CityMarker.remove({}, function(){
+		CityMarker.create(body, function(){
+			return res.send("ok");
+		})
+	});
+
+};
+
 exports.getTimePeriodCities = function (req, res) {
 	var epoch = req.param("epoch");
 	var start = req.param("start");

@@ -1,3 +1,4 @@
+import { CityMarkerEditorComponent } from './../admin/city-marker-editor.component';
 import { AdminGuard } from './../shared/admin.guard';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
@@ -13,7 +14,8 @@ const routes: Routes = [
 	{ path: "layout", component: MainComponent },
 	{ path: "admin", component: AdminComponent, canActivate: [AdminGuard] },
 	{ path: "editFullCityInfo", component: CityInfoEditorComponent, canActivate: [AdminGuard] },
-	{ path: "editShortCityInfo", component: PeriodInfoEditorComponent, canActivate: [AdminGuard] }
+	{ path: "editShortCityInfo", component: PeriodInfoEditorComponent, canActivate: [AdminGuard] },
+	{ path: "editMarkers", component: CityMarkerEditorComponent, canActivate: [AdminGuard] }
 ];
 
 @NgModule({
