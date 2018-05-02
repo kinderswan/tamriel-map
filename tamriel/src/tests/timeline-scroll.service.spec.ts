@@ -1,11 +1,17 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { TimelineScrollService } from '../timeline-scroll.service';
+import { TimelineScrollService } from '../app/infrastructure/timeline-scroll.service';
 
 describe('TimelineScrollService', () => {
   beforeEach(() => {
 	TestBed.configureTestingModule({
-		providers: [TimelineScrollService]
+		providers: [{
+			provide: TimelineScrollService,
+			useClass: class {
+				get = jasmine.createSpy("get");
+				post = jasmine.createSpy("post");
+			}
+		}]
 	});
   });
 

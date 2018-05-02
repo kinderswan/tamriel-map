@@ -22,6 +22,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { AdminGuard } from "app/shared/admin.guard";
 import { CityMarkerEditorComponent } from "app/admin/city-marker-editor.component";
+import { PipeModule } from "app/pipes/pipe.module";
 
 @NgModule({
 	declarations: [
@@ -31,14 +32,13 @@ import { CityMarkerEditorComponent } from "app/admin/city-marker-editor.componen
 		TimelineScrollComponent,
 		TimelineBlockComponent,
 		MapPointComponent,
-		EscapeHtmlPipe,
 		MainComponent,
 		AdminComponent,
 		CityInfoEditorComponent,
 		PeriodInfoEditorComponent,
 		CityMarkerEditorComponent
 	],
-	imports: [BrowserModule, AppRoutingModule, HttpModule, CommonModule, FormsModule],
+	imports: [BrowserModule, AppRoutingModule, HttpModule, CommonModule, FormsModule, PipeModule],
 	providers: [MapLayoutService, TimelineScrollService, CityInfoService, EventDispatcher, AdminGuard],
 	bootstrap: [AppComponent]
 })

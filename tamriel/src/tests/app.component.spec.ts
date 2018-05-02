@@ -1,12 +1,20 @@
-import { TestBed, async } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from '../app/app-main/app.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
 	TestBed.configureTestingModule({
+		imports:[
+			RouterTestingModule
+		],
 		declarations: [
-		AppComponent
+		AppComponent,
+		],
+		providers: [
+			{ provide: Router, useClass: class { navigate = jasmine.createSpy("navigate"); } }
 		],
 	}).compileComponents();
   }));
@@ -27,6 +35,6 @@ describe('AppComponent', () => {
 	const fixture = TestBed.createComponent(AppComponent);
 	fixture.detectChanges();
 	const compiled = fixture.debugElement.nativeElement;
-	expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!!');
+	expect(compiled.querySelector('router-outlet').textContent).toBeDefined();
   }));
 });

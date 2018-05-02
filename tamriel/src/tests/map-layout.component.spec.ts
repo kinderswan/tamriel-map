@@ -1,25 +1,28 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppModule } from "app/app-main/app.module";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { MapLayoutComponent } from './map-layout.component';
+import { MapLayoutComponent } from "../app/components/map-layout/map-layout.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
-describe('MapLayoutComponent', () => {
-  let component: MapLayoutComponent;
-  let fixture: ComponentFixture<MapLayoutComponent>;
+describe("MapLayoutComponent", () => {
+	let component: MapLayoutComponent;
+	let fixture: ComponentFixture<MapLayoutComponent>;
 
-  beforeEach(async(() => {
-	TestBed.configureTestingModule({
-		declarations: [ MapLayoutComponent ]
-	})
-	.compileComponents();
-  }));
+	beforeEach(async(() => {
+		TestBed.configureTestingModule({
+			imports: [CommonModule, FormsModule, ReactiveFormsModule],
+			declarations: [MapLayoutComponent]
+		}).compileComponents();
+	}));
 
-  beforeEach(() => {
-	fixture = TestBed.createComponent(MapLayoutComponent);
-	component = fixture.componentInstance;
-	fixture.detectChanges();
-  });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(MapLayoutComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  it('should be created', () => {
-	expect(component).toBeTruthy();
-  });
+	it("should be created", () => {
+		expect(component).toBeTruthy();
+	});
 });

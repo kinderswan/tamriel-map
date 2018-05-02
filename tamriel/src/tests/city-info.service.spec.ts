@@ -5,7 +5,15 @@ import { CityInfoService } from "../app/infrastructure/city-info.service";
 describe("CityInfoService", () => {
 	beforeEach(() => {
 		TestBed.configureTestingModule({
-			providers: [CityInfoService]
+			providers: [
+				{
+					provide: CityInfoService,
+					useClass: class {
+						get = jasmine.createSpy("get");
+						post = jasmine.createSpy("post");
+					}
+				}
+			]
 		});
 	});
 
