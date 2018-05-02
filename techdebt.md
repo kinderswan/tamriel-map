@@ -6,4 +6,4 @@ Tech debt
 - admin login + auth controller
 - angular material
 - pictures on timeblocks
-- deployment bat file
+- deployment bat file - простой без изысков
