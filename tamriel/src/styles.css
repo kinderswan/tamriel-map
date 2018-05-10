@@ -1,11 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-.timeBlock {
-	width: 12em;
-	height: 12em;
-	border: 3px solid #000000;
-	display: inline-block;
-	border: 1px solid black;
-}
+
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 .admin-container {
 	border: 2px solid #4d4d4d;
@@ -26,4 +21,31 @@
 
 .w100 {
 	width: 100%;
+}
+
+#timeLineScroll {
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+@font-face {
+	font-family: Yggdrasil; /* Имя шрифта */
+	src: url(./Yggdrasil.ttf); /* Путь к файлу со шрифтом */
+}
+body #timeLineScroll *{
+	font-family: Yggdrasil !important;
+	font-size: 25px;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 2px rgba(6,6,6,0.3);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 2px rgba(6,6,6,0.5);
 }

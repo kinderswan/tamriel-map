@@ -7,8 +7,7 @@ import { TimelineScrollService } from "../../infrastructure/timeline-scroll.serv
 
 @Component({
 	selector: "app-timeline-scroll",
-	templateUrl: "./timeline-scroll.component.html",
-	styleUrls: ["./timeline-scroll.component.css"]
+	templateUrl: "./timeline-scroll.component.html"
 })
 export class TimelineScrollComponent implements OnInit {
 	@Output() blockClick: EventEmitter<TimePeriod> = new EventEmitter<TimePeriod>();

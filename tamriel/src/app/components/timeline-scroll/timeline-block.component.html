@@ -2,15 +2,22 @@
 	<div class="" (click)="onSubmit()">
 		<div class="text-center">
 			<mat-card-header style="justify-content: center">
-
 				<mat-card-title>{{textContent}}</mat-card-title>
-
-
-
 			</mat-card-header>
 		</div>
 		<mat-card-content>
-			<img mat-card-img src="http://icons.iconarchive.com/icons/th3-prophetman/game/256/Oblivion-icon.png">
+			<ng-container *ngIf="period.StartTime.Epoch === '1E'">
+				<img mat-card-img src="http://www.gamer.ru/system/attached_images/images/000/354/579/normal/df-daggerfall_crest.png">
+			</ng-container>
+			<ng-container *ngIf="period.StartTime.Epoch === '2E'">
+				<img mat-card-img src="https://media.alienwarearena.com/media/Morrowind-Moon-and-Star.png">
+			</ng-container>
+			<ng-container *ngIf="period.StartTime.Epoch === '3E'">
+				<img mat-card-img src="http://icons.iconarchive.com/icons/th3-prophetman/game/256/Oblivion-icon.png">
+			</ng-container>
+			<ng-container *ngIf="period.StartTime.Epoch === '4E'">
+				<img mat-card-img src="https://vignette.wikia.nocookie.net/elderscrolls/images/6/6a/Skyrim_logo.png/revision/20150423115605?path-prefix=ru">
+			</ng-container>
 		</mat-card-content>
 
 	</div>

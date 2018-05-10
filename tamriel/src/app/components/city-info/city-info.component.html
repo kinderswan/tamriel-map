@@ -1,4 +1,9 @@
-<div #cityInfo>
+<h2 mat-dialog-title>
+	{{cityFullInfo?.PointName || cityDisplayed?.PointName}}
+</h2>
+
+
+<div #cityInfo mat-dialog-content>
 	<ul>
 		<li *ngFor="let info of cityDisplayed?.Info">
 			<div>{{info.Mentioned.Epoch + info.Mentioned.Year}}</div>
@@ -7,3 +12,10 @@
 	</ul>
 	<div [innerHTML]="cityFullInfo?.Info | keepHtml"></div>
 </div>
+<mat-dialog-actions>
+	<div class="row" style="width: 100%">
+		<div class="col-md-12 col-sm-12 col-xs-12 text-right">
+			<button mat-button mat-dialog-close>Close preview</button>
+		</div>
+	</div>
+</mat-dialog-actions>
