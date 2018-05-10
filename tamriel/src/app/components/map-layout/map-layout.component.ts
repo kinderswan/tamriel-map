@@ -55,9 +55,7 @@ export class MapLayoutComponent implements OnInit, AfterViewInit {
 
 	private handleShapeClick(data: CityMarker): void {
 		let dialogRef: MatDialogRef<CityInfoComponent> = this.dialog.open(CityInfoComponent, {
-			data: { cityName: data.PointName, full: true },
-			position: "top",
-			width: "100vw"
+			data: { cityName: data.PointName, full: true }
 		});
 	}
 
