@@ -1,9 +1,6 @@
 #timeLineScroll{
-    border: 1px solid #000000;
     overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-}
-
-#longdiv{
+	overflow-y: hidden;
+	margin-left: 24px;
+	margin-right: 24px;
 }
