@@ -1,3 +1,4 @@
+import { CityInfoComponent } from "./../city-info/city-info.component";
 import { Component, ElementRef, Input, OnInit, ViewChild, AfterViewInit } from "@angular/core";
 
 import { CityMarker } from "../../models/cityMarker";
@@ -5,6 +6,7 @@ import { DateMarker } from "../../models/dateMarker";
 import { TimePeriod } from "../../models/timePeriod";
 import { EventDispatcher, Events } from "../../shared/eventDispatcher";
 import { MapLayoutService } from "../../infrastructure/map-layout.service";
+import { MatDialog, MatDialogRef } from "@angular/material";
 
 @Component({
 	selector: "app-map-layout",
@@ -12,7 +14,7 @@ import { MapLayoutService } from "../../infrastructure/map-layout.service";
 	styleUrls: ["./map-layout.component.css"]
 })
 export class MapLayoutComponent implements OnInit, AfterViewInit {
-	constructor(private eventDispatcher: EventDispatcher, private mapService: MapLayoutService) {}
+	constructor(private eventDispatcher: EventDispatcher, private mapService: MapLayoutService, private dialog: MatDialog) {}
 
 	ngOnInit() {}
 
@@ -44,15 +46,18 @@ export class MapLayoutComponent implements OnInit, AfterViewInit {
 		return {
 			epoch: timePeriod.StartTime.Epoch,
 			years: requestedDates
-			.map((date) => {
-				return date.Year;
-			})
-			.join(";")
-		}
+				.map((date) => {
+					return date.Year;
+				})
+				.join(";")
+		};
 	}
 
 	private handleShapeClick(data: CityMarker): void {
-		this.eventDispatcher.publish(Events.Components.MapLayout["MapCitySelected"], data.PointName);
+		let dialogRef: MatDialogRef<CityInfoComponent> = this.dialog.open(CityInfoComponent, {
+			data: { cityName: data.PointName, full: true },
+			position: "top"
+		});
 	}
 
 	private handleRectClick(event: CityMarker): void {
@@ -60,10 +65,11 @@ export class MapLayoutComponent implements OnInit, AfterViewInit {
 		const data = {
 			epoch: times.epoch,
 			years: times.years,
-			cityName: event.PointName
+			cityName: event.PointName,
+			full: false
 		};
 
-		this.eventDispatcher.publish(Events.Components.MapLayout["MapFlagSelected"], data);
+		let dialogRef: MatDialogRef<CityInfoComponent> = this.dialog.open(CityInfoComponent, { data: data });
 	}
 
 	private subscribeForEvents(): void {
@@ -80,7 +86,7 @@ export class MapLayoutComponent implements OnInit, AfterViewInit {
 	}
 
 	private getAllMapPoints(): void {
-		this.mapService.getCities().subscribe((markers) => this.markers = markers);
+		this.mapService.getCities().subscribe((markers) => (this.markers = markers));
 	}
 
 	private removeElementsByClass(className) {

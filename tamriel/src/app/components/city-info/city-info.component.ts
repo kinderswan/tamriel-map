@@ -4,6 +4,8 @@ import { CityInfo } from "../../models/cityInfo";
 import { EventDispatcher, Events } from "../../shared/eventDispatcher";
 import { CityInfoService } from "../../infrastructure/city-info.service";
 import { CityFullInfo } from "../../models/cityFullInfo";
+import { Inject } from "@angular/core";
+import { MAT_DIALOG_DATA } from "@angular/material";
 
 @Component({
 	selector: "app-city-info",
@@ -15,23 +17,26 @@ export class CityInfoComponent implements OnInit {
 
 	cityFullInfo: CityFullInfo;
 
-	constructor(private eventDispatcher: EventDispatcher, private infoService: CityInfoService) {}
+	constructor(
+		private eventDispatcher: EventDispatcher,
+		private infoService: CityInfoService,
+		@Inject(MAT_DIALOG_DATA) public data: any
+	) {}
 
 	ngOnInit() {
-		this.subscribeForEvents();
+		if(this.data.full){
+			this.onCityClicked();
+			return;
+		}
+		this.onFlagClicked();
 	}
 
-	private onCityClicked(event: CustomEvent): void {
-		this.infoService.getFullCityInfo(event.detail).subscribe((result) => this.displayFullCityInfo(result));
+	private onCityClicked(): void {
+		this.infoService.getFullCityInfo(this.data.cityName).subscribe((result) => this.displayFullCityInfo(result));
 	}
 
-	private onFlagClicked(event: CustomEvent): void {
-		this.infoService.getCityInfoForTimePeriod(event.detail).subscribe((result) => this.displayCityDateInfo(result));
-	}
-
-	private subscribeForEvents(): void {
-		this.eventDispatcher.subscribe(Events.Components.MapLayout["MapCitySelected"], this.onCityClicked, this);
-		this.eventDispatcher.subscribe(Events.Components.MapLayout["MapFlagSelected"], this.onFlagClicked, this);
+	private onFlagClicked(): void {
+		this.infoService.getCityInfoForTimePeriod(this.data).subscribe((result) => this.displayCityDateInfo(result));
 	}
 
 	private displayCityDateInfo(result: CityInfo) {
@@ -44,7 +49,7 @@ export class CityInfoComponent implements OnInit {
 		this.cityFullInfo = result[0];
 	}
 
-	private clearAll(){
+	private clearAll() {
 		this.cityDisplayed = null;
 		this.cityFullInfo = null;
 	}
