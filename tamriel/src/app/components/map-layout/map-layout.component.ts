@@ -57,8 +57,7 @@ export class MapLayoutComponent implements OnInit, AfterViewInit {
 		let dialogRef: MatDialogRef<CityInfoComponent> = this.dialog.open(CityInfoComponent, {
 			data: { cityName: data.PointName, full: true },
 			position: "top",
-			height: '400px',
-  			width: '600px',
+			width: "100vw"
 		});
 	}
 
@@ -71,7 +70,7 @@ export class MapLayoutComponent implements OnInit, AfterViewInit {
 			full: false
 		};
 
-		let dialogRef: MatDialogRef<CityInfoComponent> = this.dialog.open(CityInfoComponent, { data: data });
+		let dialogRef: MatDialogRef<CityInfoComponent> = this.dialog.open(CityInfoComponent, { data: data, width: "100vw" });
 	}
 
 	private subscribeForEvents(): void {

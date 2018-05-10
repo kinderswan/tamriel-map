@@ -29,11 +29,3 @@
 	align-content: center;
 	justify-content: center;
 }
-
-.mat-dialog-container {
-	position: fixed !important;
-	left: 20%;
-	top: 0%;
-	background-color: white;
-	z-index: 100000;
-}
