@@ -6,7 +6,7 @@
 <div #cityInfo mat-dialog-content>
 	<ul>
 		<li *ngFor="let info of cityDisplayed?.Info">
-			<div>{{info.Mentioned.Epoch + info.Mentioned.Year}}</div>
+			<div>{{info.Mentioned.Epoch + " " + info.Mentioned.Year}}</div>
 			<div [innerHTML]="info.InfoText | keepHtml"></div>
 		</li>
 	</ul>
