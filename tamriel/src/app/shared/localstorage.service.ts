@@ -21,6 +21,6 @@ export class LocalStorageService {
 	}
 
 	public removeAll(): void{
-		localStorage.clear;
+		localStorage.clear();
 	}
 }
