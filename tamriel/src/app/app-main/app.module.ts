@@ -1,3 +1,4 @@
+import { LocalStorageService } from "./../shared/localstorage.service";
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
@@ -8,7 +9,7 @@ import { CityMarkerEditorComponent } from "app/admin/city-marker-editor.componen
 import { TimelineBlockComponent } from "app/components/timeline-scroll/timeline-block.component";
 import { PipeModule } from "app/pipes/pipe.module";
 import { AdminGuard } from "app/shared/admin.guard";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { CityInfoComponent } from "../components/city-info/city-info.component";
 import { MainComponent } from "../components/main-container/main.component";
@@ -40,8 +41,19 @@ import { MatCardModule } from "@angular/material";
 		PeriodInfoEditorComponent,
 		CityMarkerEditorComponent
 	],
-	imports: [BrowserAnimationsModule, BrowserModule, AppRoutingModule, HttpModule, CommonModule, FormsModule, PipeModule, MatDialogModule, MatCardModule, MatButtonModule],
-	providers: [MapLayoutService, TimelineScrollService, CityInfoService, EventDispatcher, AdminGuard],
+	imports: [
+		BrowserAnimationsModule,
+		BrowserModule,
+		AppRoutingModule,
+		HttpModule,
+		CommonModule,
+		FormsModule,
+		PipeModule,
+		MatDialogModule,
+		MatCardModule,
+		MatButtonModule
+	],
+	providers: [MapLayoutService, TimelineScrollService, CityInfoService, EventDispatcher, AdminGuard, LocalStorageService],
 	bootstrap: [AppComponent],
 	entryComponents: [CityInfoComponent]
 })
